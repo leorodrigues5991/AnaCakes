@@ -3,37 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bolos & Brigadeiros Gourmet</title>
+  <title>Bolos &amp; Brigadeiros Gourmet</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fontes + estilos -->
+  <!-- Fontes mais legíveis: Poppins (títulos) e Inter (textos) -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-    body { box-sizing: border-box; }
+    body {
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.5;
+      background: linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 50%, #FFF5F7 100%);
+    }
 
-    .serif-font { font-family: 'Cormorant Garamond', serif; }
-    .sans-font { font-family: 'Montserrat', sans-serif; }
+    .serif-font {
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .sans-font {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes shimmer {
-      0%   { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
     }
 
     @keyframes float {
-      0%,100% { transform: translateY(0px); }
-      50%     { transform: translateY(-10px); }
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
-    .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-    .float-animation { animation: float 3s ease-in-out infinite; }
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
 
     .card-hover {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -46,20 +75,26 @@
     .card-hover::before {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
       transition: left 0.5s;
     }
 
-    .card-hover:hover::before { left: 100%; }
+    .card-hover:hover::before {
+      left: 100%;
+    }
 
     .card-hover:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 20px 50px rgba(212, 175, 55, 0.35);
     }
 
-    .card-hover:active { transform: translateY(-4px) scale(1.01); }
+    .card-hover:active {
+      transform: translateY(-4px) scale(1.01);
+    }
 
     .selected-card {
       border: 3px solid #D4AF37 !important;
@@ -71,8 +106,10 @@
     .selected-card::after {
       content: '✓';
       position: absolute;
-      top: 10px; right: 10px;
-      width: 28px; height: 28px;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
       background: linear-gradient(135deg, #D4AF37, #F4E4C1);
       color: white;
       border-radius: 50%;
@@ -84,8 +121,13 @@
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
     }
 
+    .gold-gradient {
+      background: linear-gradient(135deg, #D4AF37, #F4E4C1, #D4AF37);
+    }
+
     .decorative-line {
-      width: 100px; height: 3px;
+      width: 100px;
+      height: 3px;
       background: linear-gradient(90deg, transparent, #D4AF37, #F4E4C1, #D4AF37, transparent);
       margin: 0 auto;
       border-radius: 2px;
@@ -115,682 +157,599 @@
       transform: translateY(-2px);
     }
 
-    @view-transition { navigation: auto; }
+    @view-transition {
+      navigation: auto;
+    }
+
+    /* Ícone flutuante do Instagram (inferior direito, responsivo) */
+    .instagram-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+      padding: 14px;
+      border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .instagram-float:hover {
+      transform: scale(1.12);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    }
+
+    .instagram-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (max-width: 480px) {
+      .instagram-float {
+        bottom: 18px;
+        right: 18px;
+        padding: 12px;
+      }
+
+      .instagram-float img {
+        width: 26px;
+        height: 26px;
+      }
+    }
   </style>
 </head>
-
-<body style="background: linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 50%, #FFF5F7 100%);">
-<div class="w-full min-h-full">
-
-  <!-- Hero -->
-  <section class="w-full py-16 px-6" style="background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F7 100%);">
-    <div class="max-w-5xl mx-auto text-center fade-in-up">
-      <div class="mb-8 float-animation">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none"
-             xmlns="http://www.w3.org/2000/svg" class="mx-auto"
-             style="filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 0.4));">
-          <ellipse cx="60" cy="95" rx="35" ry="8" fill="#8B7B8B" opacity="0.3" />
-          <path d="M35 90 L30 95 L35 100 L60 105 L85 100 L90 95 L85 90 Z"
-                fill="#D4AF37" opacity="0.4" />
-          <ellipse cx="60" cy="85" rx="32" ry="10" fill="#8B4513" />
-          <ellipse cx="60" cy="85" rx="32" ry="8" fill="#6B3410" />
-          <circle cx="60" cy="60" r="35" fill="#8B4513" />
-          <circle cx="60" cy="60" r="35" fill="url(#brigadeiro-gradient)" />
-          <ellipse cx="50" cy="45" rx="12" ry="8" fill="#FFFFFF" opacity="0.25" />
-          <ellipse cx="48" cy="43" rx="6" ry="4" fill="#FFFFFF" opacity="0.4" />
-          <defs>
-            <radialGradient id="brigadeiro-gradient" cx="45%" cy="35%">
-              <stop offset="0%" style="stop-color:#A0522D;stop-opacity:0.4" />
-              <stop offset="70%" style="stop-color:#8B4513;stop-opacity:0.1" />
-              <stop offset="100%" style="stop-color:#6B3410;stop-opacity:0.3" />
-            </radialGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <div class="mb-3">
-        <p class="sans-font"
-           style="color: #D4AF37; font-size: 16px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;">
-          Cakes da Anamoc
-        </p>
-      </div>
-
-      <h1 id="main-title" class="serif-font mb-4"
-          style="color: #C48B9F; font-size: 52px; font-weight: 700; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(196, 139, 159, 0.2);">
-        Bolos & Brigadeiros Gourmet
-      </h1>
-      <div class="decorative-line mb-6"></div>
-      <p id="subtitle" class="sans-font mb-8"
-         style="color: #8B7B8B; font-size: 18px; font-weight: 300; line-height: 1.6;">
-        Monte seu pedido e envie pelo WhatsApp.
-      </p>
-    </div>
-  </section>
-
-  <!-- Passo 1: Massa -->
-  <section class="w-full py-16 px-6" style="background: #FFFFFF;">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center"
-             style="background: linear-gradient(135deg, #D4AF37, #F4E4C1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);">
-          <span class="serif-font"
-                style="color: #FFFFFF; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            1
-          </span>
-        </div>
-        <div class="text-4xl mb-3">🍰</div>
-        <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">
-          Escolha a massa
-        </h2>
-        <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">
-          Branca ou chocolate? Você decide!
-        </p>
-      </div>
-      <div class="decorative-line mb-10"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-        <button class="massa-btn card-hover p-8 rounded-2xl sans-font"
-                data-massa="Branca"
-                style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
-          <div class="text-5xl mb-3" style="pointer-events: none;">🍰</div>
-          <span style="pointer-events: none;">Massa Branca</span>
-        </button>
-
-        <button class="massa-btn card-hover p-8 rounded-2xl sans-font"
-                data-massa="Chocolate"
-                style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
-          <div class="text-5xl mb-3" style="pointer-events: none;">🍫</div>
-          <span style="pointer-events: none;">Massa de Chocolate</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Passo 2: Recheios -->
-  <section class="w-full py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center"
-             style="background: linear-gradient(135deg, #D4AF37, #F4E4C1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);">
-          <span class="serif-font"
-                style="color: #FFFFFF; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            2
-          </span>
-        </div>
-        <div class="text-4xl mb-3">🎂</div>
-        <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">
-          Escolha até 2 recheios
-        </h2>
-        <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">
-          Serão 3 camadas deliciosas, repetindo um dos sabores escolhidos
-        </p>
-      </div>
-      <div class="decorative-line mb-10"></div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <!-- (todos os botões de recheios exatamente como seu código original) -->
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Baba de Moça"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Baba de Moça
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Beijinho"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Beijinho
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Beijinho c/ Ameixa"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Beijinho c/ Ameixa
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Bicho de Pé"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Bicho de Pé
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Brigadeiro de Ninho"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Brigadeiro de Ninho
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Ninho c/ Abacaxi"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Ninho c/ Abacaxi
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Ninho Trufado"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Ninho Trufado
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Ninho c/ Oreo"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Ninho c/ Oreo
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Ovomaltine"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Ovomaltine
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Brigadeiro Branco"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Brigadeiro Branco
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Brigadeiro Preto"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Brigadeiro Preto
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Brigadeiro Meio Amargo"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Brigadeiro Meio Amargo
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Paçoca"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Paçoca
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Doce de Leite c/ Coco"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Doce de Leite c/ Coco
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Doce de Leite"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Doce de Leite
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Mousse de Ninho"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Mousse de Ninho
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="4 Leites"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          4 Leites
-        </button>
-        <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center"
-                data-recheio="Prestígio"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          Prestígio
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Passo 3: Tamanhos -->
-  <section class="w-full py-16 px-6" style="background:#FFFFFF;">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center"
-             style="background:linear-gradient(135deg,#D4AF37,#F4E4C1);box-shadow:0 8px 20px rgba(212,175,55,0.3);">
-          <span class="serif-font"
-                style="color:#FFFFFF;font-size:32px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            3
-          </span>
-        </div>
-        <div class="text-4xl mb-3">📏</div>
-        <h2 class="serif-font mb-2" style="color:#C48B9F;font-size:38px;font-weight:600;">
-          Escolha o tamanho
-        </h2>
-        <p class="sans-font" style="color:#8B7B8B;font-size:15px;">
-          De 4 a 75 fatias para sua festa
-        </p>
-      </div>
-      <div class="decorative-line mb-10"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="10cm (4 fatias)" data-valor="60"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">10cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">4 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 60</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="13cm (8 a 10 fatias)" data-valor="115"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">13cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">8 a 10 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 115</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="15cm (10 a 15 fatias)" data-valor="135"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">15cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">10 a 15 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 135</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="17cm (15 a 20 fatias)" data-valor="160"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">17cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">15 a 20 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 160</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="20cm (25 a 30 fatias)" data-valor="200"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">20cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">25 a 30 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 200</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="25cm (30 a 40 fatias)" data-valor="270"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">25cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">30 a 40 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 270</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="30cm (50 a 55 fatias)" data-valor="350"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">30cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">50 a 55 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 350</p>
-        </button>
-        <button class="tamanho-btn card-hover p-6 rounded-xl"
-                data-tamanho="35cm (60 a 75 fatias)" data-valor="400"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
-          <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">35cm</p>
-          <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">60 a 75 fatias</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 400</p>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Passo 4: Brigadeiros -->
-  <section class="w-full py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8">
-        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center"
-             style="background:linear-gradient(135deg,#D4AF37,#F4E4C1);box-shadow:0 8px 20px rgba(212,175,55,0.3);">
-          <span class="serif-font"
-                style="color:#FFFFFF;font-size:32px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            4
-          </span>
-        </div>
-        <div class="text-4xl mb-3">🍫</div>
-        <h2 class="serif-font mb-2" style="color:#C48B9F;font-size:38px;font-weight:600;">
-          Brigadeiros (Opcional)
-        </h2>
-        <p class="sans-font" style="color:#8B7B8B;font-size:15px;">
-          15 sabores incríveis! Valores individuais - centena
-        </p>
-      </div>
-      <div class="decorative-line mb-10"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <!-- todos os brigadeiros -->
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Beijinho" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Beijinho</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Brigadeiro Tradicional" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Brigadeiro Tradicional</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Prestígio" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Prestígio</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Brigadeiro Branco" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Brigadeiro Branco</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Brigadeiro de Ninho" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Brigadeiro de Ninho</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Bicho de Pé" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Bicho de Pé</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Cajuzinho" data-valor="120"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Cajuzinho</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 120</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Dois Amores" data-valor="130"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Dois Amores</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 130</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Leite Ninho" data-valor="130"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Leite Ninho</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 130</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Brigadeiro de Churros" data-valor="140"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Brigadeiro de Churros</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 140</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Ninho com Nutella" data-valor="140"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Ninho com Nutella</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 140</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Olho de Sogra" data-valor="150"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Olho de Sogra</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 150</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Brigadeiro Ferrero" data-valor="160"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Brigadeiro Ferrero</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 160</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Ninho com Uva Verde" data-valor="160"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Ninho com Uva Verde</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 160</p>
-        </button>
-        <button class="brigadeiro-btn card-hover p-5 rounded-xl"
-                data-brigadeiro="Brigadeiro com Confete" data-valor="160"
-                style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
-          <p class="sans-font mb-2" style="color:#8B7B8B;font-size:15px;font-weight:500;">Brigadeiro com Confete</p>
-          <p class="serif-font" style="color:#D4AF37;font-size:18px;font-weight:600;">R$ 160</p>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resumo -->
-  <section class="w-full py-16 px-6" style="background:#FFFFFF;">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="serif-font text-center mb-3"
-          style="color:#C48B9F;font-size:38px;font-weight:600;">
-        Resumo do seu pedido
-      </h2>
-      <div class="decorative-line mb-10"></div>
-
-      <div class="p-8 rounded-2xl mb-8"
-           style="background:linear-gradient(135deg,#FFF5F7,#FFFFFF);box-shadow:0 15px 40px rgba(196,139,159,0.15);">
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Seu nome</label>
-          <input type="text" id="nome" class="w-full p-3 rounded-lg sans-font"
-                 placeholder="Digite seu nome"
-                 style="background:#FFFFFF;font-size:15px;color:#8B7B8B;">
-        </div>
-
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Data da festa</label>
-          <input type="date" id="data" class="w-full p-3 rounded-lg sans-font"
-                 style="background:#FFFFFF;font-size:15px;color:#8B7B8B;">
-        </div>
-
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Massa escolhida</label>
-          <input type="text" id="resumo-massa"
-                 class="w-full p-3 rounded-lg sans-font" readonly
-                 style="background:#FFF5F7;font-size:15px;color:#8B7B8B;">
-        </div>
-
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Recheios escolhidos</label>
-          <input type="text" id="resumo-recheios"
-                 class="w-full p-3 rounded-lg sans-font" readonly
-                 style="background:#FFF5F7;font-size:15px;color:#8B7B8B;">
-        </div>
-
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Tamanho do bolo</label>
-          <input type="text" id="resumo-tamanho"
-                 class="w-full p-3 rounded-lg sans-font" readonly
-                 style="background:#FFF5F7;font-size:15px;color:#8B7B8B;">
-        </div>
-
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Brigadeiros selecionados</label>
-          <textarea id="resumo-brigadeiros"
-                    class="w-full p-3 rounded-lg sans-font" rows="3" readonly
-                    style="background:#FFF5F7;font-size:15px;color:#8B7B8B;"></textarea>
-        </div>
-
-        <div class="mb-6">
-          <label class="sans-font block mb-2"
-                 style="color:#8B7B8B;font-size:14px;font-weight:500;">Observações adicionais</label>
-          <textarea id="observacoes"
-                    class="w-full p-3 rounded-lg sans-font" rows="4"
-                    placeholder="Ex: tema da festa, cores da decoração, observações especiais..."
-                    style="background:#FFFFFF;font-size:15px;color:#8B7B8B;"></textarea>
-        </div>
-
-        <div class="p-8 rounded-2xl mb-6 price-badge"
-             style="position:relative;overflow:hidden;box-shadow:0 15px 40px rgba(212,175,55,0.4);border:2px solid rgba(255,255,255,0.3);">
-          <div style="position:absolute;top:-50%;left:-50%;width:200%;height:200%;
-                      background:radial-gradient(circle,rgba(255,255,255,0.2) 0%,transparent 70%);
-                      animation:float 4s ease-in-out infinite;">
-          </div>
-          <p class="sans-font text-center mb-3"
-             style="color:rgba(255,255,255,0.95);font-size:16px;font-weight:500;letter-spacing:1px;text-transform:uppercase;position:relative;">
-            ✨ Valor Total Estimado ✨
-          </p>
-          <p id="valor-total" class="serif-font text-center"
-             style="color:#FFFFFF;font-size:48px;font-weight:700;text-shadow:0 4px 15px rgba(0,0,0,0.2);position:relative;">
-            R$ 0
-          </p>
-        </div>
-
-        <button id="enviar-whatsapp"
-                class="w-full p-6 rounded-xl sans-font"
-                style="background:linear-gradient(135deg,#25D366,#128C7E);color:#FFFFFF;font-size:19px;font-weight:600;border:none;cursor:pointer;box-shadow:0 12px 35px rgba(37,211,102,0.4);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
-          <svg style="display:inline-block;vertical-align:middle;margin-right:10px;width:28px;height:28px;"
-               viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+<body>
+  <div class="w-full min-h-full">
+    <!-- Hero Section -->
+    <section class="w-full py-16 px-6" style="background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F7 100%);">
+      <div class="max-w-5xl mx-auto text-center fade-in-up">
+        <div class="mb-8 float-animation">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto" style="filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 0.4));">
+            <!-- Forminha do brigadeiro -->
+            <ellipse cx="60" cy="95" rx="35" ry="8" fill="#8B7B8B" opacity="0.3" />
+            <path d="M35 90 L30 95 L35 100 L60 105 L85 100 L90 95 L85 90 Z" fill="#D4AF37" opacity="0.4" />
+            <!-- Base do brigadeiro -->
+            <ellipse cx="60" cy="85" rx="32" ry="10" fill="#8B4513" />
+            <ellipse cx="60" cy="85" rx="32" ry="8" fill="#6B3410" />
+            <!-- Corpo principal do brigadeiro -->
+            <circle cx="60" cy="60" r="35" fill="#8B4513" />
+            <circle cx="60" cy="60" r="35" fill="url(#brigadeiro-gradient)" />
+            <!-- Brilho no brigadeiro -->
+            <ellipse cx="50" cy="45" rx="12" ry="8" fill="#FFFFFF" opacity="0.25" />
+            <ellipse cx="48" cy="43" rx="6" ry="4" fill="#FFFFFF" opacity="0.4" />
+            <!-- Granulado de chocolate -->
+            <circle cx="45" cy="50" r="2.5" fill="#4A2511" opacity="0.8" />
+            <circle cx="52" cy="48" r="2" fill="#4A2511" opacity="0.7" />
+            <circle cx="48" cy="55" r="2.5" fill="#4A2511" opacity="0.9" />
+            <circle cx="40" cy="58" r="2" fill="#4A2511" opacity="0.8" />
+            <circle cx="43" cy="63" r="2.5" fill="#4A2511" opacity="0.7" />
+            <circle cx="55" cy="40" r="2" fill="#4A2511" opacity="0.8" />
+            <circle cx="60" cy="38" r="2.5" fill="#4A2511" opacity="0.9" />
+            <circle cx="65" cy="42" r="2" fill="#4A2511" opacity="0.7" />
+            <circle cx="70" cy="48" r="2.5" fill="#4A2511" opacity="0.8" />
+            <circle cx="75" cy="55" r="2" fill="#4A2511" opacity="0.9" />
+            <circle cx="72" cy="62" r="2.5" fill="#4A2511" opacity="0.7" />
+            <circle cx="68" cy="68" r="2" fill="#4A2511" opacity="0.8" />
+            <circle cx="60" cy="72" r="2.5" fill="#4A2511" opacity="0.9" />
+            <circle cx="52" cy="70" r="2" fill="#4A2511" opacity="0.7" />
+            <circle cx="45" cy="68" r="2.5" fill="#4A2511" opacity="0.8" />
+            <circle cx="38" cy="65" r="2" fill="#4A2511" opacity="0.9" />
+            <circle cx="58" cy="58" r="2" fill="#4A2511" opacity="0.8" />
+            <circle cx="62" cy="52" r="2.5" fill="#4A2511" opacity="0.7" />
+            <circle cx="65" cy="58" r="2" fill="#4A2511" opacity="0.9" />
+            <!-- Estrelinhas douradas decorativas -->
+            <path d="M25 30 L27 35 L32 35 L28 38 L30 43 L25 40 L20 43 L22 38 L18 35 L23 35 Z" fill="#D4AF37" opacity="0.6" />
+            <path d="M90 25 L92 30 L97 30 L93 33 L95 38 L90 35 L85 38 L87 33 L83 30 L88 30 Z" fill="#D4AF37" opacity="0.7" />
+            <path d="M95 65 L96 68 L99 68 L97 70 L98 73 L95 71 L92 73 L93 70 L91 68 L94 68 Z" fill="#F4E4C1" opacity="0.8" />
+            <path d="M20 70 L21 73 L24 73 L22 75 L23 78 L20 76 L17 78 L18 75 L16 73 L19 73 Z" fill="#F4E4C1" opacity="0.7" />
+            <!-- Gradiente para dar volume -->
+            <defs>
+              <radialGradient id="brigadeiro-gradient" cx="45%" cy="35%">
+                <stop offset="0%" style="stop-color:#A0522D;stop-opacity:0.4" />
+                <stop offset="70%" style="stop-color:#8B4513;stop-opacity:0.1" />
+                <stop offset="100%" style="stop-color:#6B3410;stop-opacity:0.3" />
+              </radialGradient>
+            </defs>
           </svg>
-          Enviar Pedido pelo WhatsApp
-        </button>
+        </div>
+
+        <div class="mb-3">
+          <p class="sans-font" style="color: #D4AF37; font-size: 16px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;">
+            Cakes da Anamoc
+          </p>
+        </div>
+
+        <h1 id="main-title" class="serif-font mb-4" style="color: #C48B9F; font-size: 52px; font-weight: 700; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(196, 139, 159, 0.2);">
+          Bolos &amp; Brigadeiros Gourmet
+        </h1>
+
+        <div class="decorative-line mb-6"></div>
+
+        <p id="subtitle" class="sans-font mb-8" style="color: #8B7B8B; font-size: 18px; font-weight: 300; line-height: 1.6;">
+          Monte seu pedido e envie pelo WhatsApp.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="w-full py-12 px-6"
-          style="background:linear-gradient(135deg,#FFF5F7,#FFFFFF);">
-    <div class="max-w-5xl mx-auto text-center">
-      <div class="mb-6">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
-             xmlns="http://www.w3.org/2000/svg" class="mx-auto"
-             style="filter:drop-shadow(0 5px 15px rgba(212,175,55,0.2));">
-          <path d="M30 10C23 10 18 14 18 21C18 28 23 31 30 31C37 31 42 28 42 21C42 14 37 10 30 10Z" fill="#FFB6C1" opacity="0.8"/>
-          <path d="M13 31C10 31 7 34 7 40V48C7 52 10 55 16 55H44C50 55 53 52 53 48V40C53 34 50 31 47 31H13Z" fill="#FFB6C1"/>
-          <circle cx="23" cy="42" r="2.5" fill="#D4AF37" opacity="0.7"/>
-          <circle cx="37" cy="42" r="2.5" fill="#D4AF37" opacity="0.7"/>
-          <circle cx="30" cy="47" r="2" fill="#D4AF37" opacity="0.7"/>
-        </svg>
+    <!-- Passo 1: Massa -->
+    <section class="w-full py-16 px-6" style="background: #FFFFFF;">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: linear-gradient(135deg, #D4AF37, #F4E4C1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);">
+            <span class="serif-font" style="color: #FFFFFF; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">1</span>
+          </div>
+          <div class="text-4xl mb-3">🍰</div>
+          <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">Escolha a massa</h2>
+          <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">Branca ou chocolate? Você decide!</p>
+        </div>
+        <div class="decorative-line mb-10"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <button class="massa-btn card-hover p-8 rounded-2xl sans-font" data-massa="Branca" style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
+            <div class="text-5xl mb-3" style="pointer-events: none;">🍰</div>
+            <span style="pointer-events: none;">Massa Branca</span>
+          </button>
+          <button class="massa-btn card-hover p-8 rounded-2xl sans-font" data-massa="Chocolate" style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
+            <div class="text-5xl mb-3" style="pointer-events: none;">🍫</div>
+            <span style="pointer-events: none;">Massa de Chocolate</span>
+          </button>
+        </div>
       </div>
-      <p id="footer-text" class="serif-font mb-4"
-         style="color:#C48B9F;font-size:24px;font-weight:600;">
-        Será um prazer adoçar seu momento especial!
-      </p>
-      <div class="decorative-line mb-4"></div>
-      <p class="sans-font" style="color:#8B7B8B;font-size:16px;">
-        📱 WhatsApp: +55 38 9982-4317
-      </p>
-    </div>
-  </footer>
+    </section>
 
-</div>
+    <!-- Passo 2: Recheios -->
+    <section class="w-full py-16 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: linear-gradient(135deg, #D4AF37, #F4E4C1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);">
+            <span class="serif-font" style="color: #FFFFFF; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">2</span>
+          </div>
+          <div class="text-4xl mb-3">🎂</div>
+          <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">Escolha até 2 recheios</h2>
+          <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">Serão 3 camadas deliciosas, repetindo um dos sabores escolhidos</p>
+        </div>
+        <div class="decorative-line mb-10"></div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Baba de Moça" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Baba de Moça</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Beijinho" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Beijinho</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Beijinho c/ Ameixa" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Beijinho c/ Ameixa</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Bicho de Pé" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Bicho de Pé</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro de Ninho" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro de Ninho</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho c/ Abacaxi" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ninho c/ Abacaxi</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho Trufado" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ninho Trufado</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho c/ Oreo" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ninho c/ Oreo</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ovomaltine" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ovomaltine</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Branco" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro Branco</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Preto" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro Preto</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Meio Amargo" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro Meio Amargo</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Paçoca" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Paçoca</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Doce de Leite c/ Coco" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Doce de Leite c/ Coco</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Doce de Leite" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Doce de Leite</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Mousse de Ninho" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Mousse de Ninho</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="4 Leites" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">4 Leites</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Prestígio" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Prestígio</button>
+        </div>
+      </div>
+    </section>
 
-<!-- JS -->
-<script>
-  const pedido = {
-    massa: '',
-    recheios: [],
-    tamanho: '',
-    valorBolo: 0,
-    brigadeiros: [],
-    valorBrigadeiros: 0
-  };
+    <!-- Passo 3: Tamanhos -->
+    <section class="w-full py-16 px-6" style="background: #FFFFFF;">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: linear-gradient(135deg, #D4AF37, #F4E4C1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);">
+            <span class="serif-font" style="color: #FFFFFF; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">3</span>
+          </div>
+          <div class="text-4xl mb-3">📏</div>
+          <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">Escolha o tamanho</h2>
+          <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">De 4 a 75 fatias para sua festa</p>
+        </div>
+        <div class="decorative-line mb-10"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="10cm (4 fatias)" data-valor="60" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">10cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">4 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 60</p>
+          </button>
 
-  function toast(msg) {
-    const div = document.createElement('div');
-    div.textContent = msg;
-    div.style.cssText =
-      'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#C48B9F;color:#fff;padding:15px 30px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.3);z-index:9999;font-family:Montserrat,sans-serif;';
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 3000);
-  }
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="13cm (8 a 10 fatias)" data-valor="115" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">13cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">8 a 10 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 115</p>
+          </button>
 
-  // Massa
-  document.querySelectorAll('.massa-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.massa-btn').forEach(b => b.classList.remove('selected-card'));
-      btn.classList.add('selected-card');
-      pedido.massa = btn.dataset.massa;
-      atualizarResumo();
-    });
-  });
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="15cm (10 a 15 fatias)" data-valor="135" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">15cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">10 a 15 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 135</p>
+          </button>
 
-  // Recheios máx 2
-  document.querySelectorAll('.recheio-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const recheio = btn.dataset.recheio;
-      const index = pedido.recheios.indexOf(recheio);
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="17cm (15 a 20 fatias)" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">17cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">15 a 20 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 160</p>
+          </button>
 
-      if (index > -1) {
-        pedido.recheios.splice(index, 1);
-        btn.classList.remove('selected-card');
-      } else {
-        if (pedido.recheios.length < 2) {
-          pedido.recheios.push(recheio);
-          btn.classList.add('selected-card');
-        } else {
-          toast('Você já selecionou 2 recheios. Remova um para adicionar outro.');
-        }
-      }
-      atualizarResumo();
-    });
-  });
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="20cm (25 a 30 fatias)" data-valor="200" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">20cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">25 a 30 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 200</p>
+          </button>
 
-  // Tamanho
-  document.querySelectorAll('.tamanho-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tamanho-btn').forEach(b => b.classList.remove('selected-card'));
-      btn.classList.add('selected-card');
-      pedido.tamanho = btn.dataset.tamanho;
-      pedido.valorBolo = parseInt(btn.dataset.valor, 10);
-      atualizarResumo();
-    });
-  });
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="25cm (30 a 40 fatias)" data-valor="270" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">25cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">30 a 40 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 270</p>
+          </button>
 
-  // Brigadeiros múltiplos
-  document.querySelectorAll('.brigadeiro-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const brigadeiro = btn.dataset.brigadeiro;
-      const valor = parseInt(btn.dataset.valor, 10);
-      const index = pedido.brigadeiros.findIndex(b => b.nome === brigadeiro);
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="30cm (50 a 55 fatias)" data-valor="350" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">30cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">50 a 55 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 350</p>
+          </button>
 
-      if (index > -1) {
-        pedido.brigadeiros.splice(index, 1);
-        btn.classList.remove('selected-card');
-      } else {
-        pedido.brigadeiros.push({ nome: brigadeiro, valor });
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="35cm (60 a 75 fatias)" data-valor="400" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
+            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">35cm</p>
+            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">60 a 75 fatias</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 400</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Passo 4: Brigadeiros -->
+    <section class="w-full py-16 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: linear-gradient(135deg, #D4AF37, #F4E4C1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);">
+            <span class="serif-font" style="color: #FFFFFF; font-size: 32px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">4</span>
+          </div>
+          <div class="text-4xl mb-3">🍫</div>
+          <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">Brigadeiros (Opcional)</h2>
+          <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">15 sabores incríveis! Valores individuais - centena</p>
+        </div>
+        <div class="decorative-line mb-10"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Beijinho" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Beijinho</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Tradicional" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro Tradicional</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Prestígio" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Prestígio</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Branco" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro Branco</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro de Ninho" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro de Ninho</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Bicho de Pé" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Bicho de Pé</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Cajuzinho" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Cajuzinho</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Dois Amores" data-valor="130" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Dois Amores</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 130</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Leite Ninho" data-valor="130" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Leite Ninho</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 130</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro de Churros" data-valor="140" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro de Churros</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 140</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Ninho com Nutella" data-valor="140" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Ninho com Nutella</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 140</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Olho de Sogra" data-valor="150" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Olho de Sogra</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 150</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Ferrero" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro Ferrero</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 160</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Ninho com Uva Verde" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Ninho com Uva Verde</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 160</p>
+          </button>
+
+          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro com Confete" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
+            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro com Confete</p>
+            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 160</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo do Pedido -->
+    <section class="w-full py-16 px-6" style="background: #FFFFFF;">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="serif-font text-center mb-3" style="color: #C48B9F; font-size: 38px; font-weight: 600;">
+          Resumo do seu pedido
+        </h2>
+        <div class="decorative-line mb-10"></div>
+
+        <div class="p-8 rounded-2xl mb-8" style="background: linear-gradient(135deg, #FFF5F7, #FFFFFF); box-shadow: 0 15px 40px rgba(196, 139, 159, 0.15);">
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Seu nome</label>
+            <input type="text" id="nome" class="w-full p-3 rounded-lg sans-font" placeholder="Digite seu nome" style="background: #FFFFFF; font-size: 15px; color: #8B7B8B;">
+          </div>
+
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Data da festa</label>
+            <input type="date" id="data" class="w-full p-3 rounded-lg sans-font" style="background: #FFFFFF; font-size: 15px; color: #8B7B8B;">
+          </div>
+
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Massa escolhida</label>
+            <input type="text" id="resumo-massa" class="w-full p-3 rounded-lg sans-font" readonly style="background: #FFF5F7; font-size: 15px; color: #8B7B8B;">
+          </div>
+
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Recheios escolhidos</label>
+            <input type="text" id="resumo-recheios" class="w-full p-3 rounded-lg sans-font" readonly style="background: #FFF5F7; font-size: 15px; color: #8B7B8B;">
+          </div>
+
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Tamanho do bolo</label>
+            <input type="text" id="resumo-tamanho" class="w-full p-3 rounded-lg sans-font" readonly style="background: #FFF5F7; font-size: 15px; color: #8B7B8B;">
+          </div>
+
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Brigadeiros selecionados</label>
+            <textarea id="resumo-brigadeiros" class="w-full p-3 rounded-lg sans-font" rows="3" readonly style="background: #FFF5F7; font-size: 15px; color: #8B7B8B;"></textarea>
+          </div>
+
+          <div class="mb-6">
+            <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Observações adicionais</label>
+            <textarea id="observacoes" class="w-full p-3 rounded-lg sans-font" rows="4" placeholder="Ex: tema da festa, cores da decoração, observações especiais..." style="background: #FFFFFF; font-size: 15px; color: #8B7B8B;"></textarea>
+          </div>
+
+          <div class="p-8 rounded-2xl mb-6 price-badge" style="position: relative; overflow: hidden; box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); border: 2px solid rgba(255, 255, 255, 0.3);">
+            <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%); animation: float 4s ease-in-out infinite;"></div>
+            <p class="sans-font text-center mb-3" style="color: rgba(255, 255, 255, 0.95); font-size: 16px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; position: relative;">
+              ✨ Valor Total Estimado ✨
+            </p>
+            <p id="valor-total" class="serif-font text-center" style="color: #FFFFFF; font-size: 48px; font-weight: 700; text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); position: relative;">
+              R$ 0
+            </p>
+          </div>
+
+          <button
+            id="enviar-whatsapp"
+            class="w-full p-6 rounded-xl sans-font"
+            style="background: linear-gradient(135deg, #25D366, #128C7E); color: #FFFFFF; font-size: 19px; font-weight: 600; border: none; cursor: pointer; box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;"
+            onmouseover="this.style.transform='translateY(-4px) scale(1.02)'; this.style.boxShadow='0 18px 50px rgba(37, 211, 102, 0.5)'"
+            onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 35px rgba(37, 211, 102, 0.4)'"
+          >
+            <svg style="display: inline-block; vertical-align: middle; margin-right: 10px; width: 28px; height: 28px;" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+            Enviar Pedido pelo WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 px-6" style="background: linear-gradient(135deg, #FFF5F7, #FFFFFF);">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="mb-6">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto" style="filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.2));">
+            <path d="M30 10C23 10 18 14 18 21C18 28 23 31 30 31C37 31 42 28 42 21C42 14 37 10 30 10Z" fill="#FFB6C1" opacity="0.8" />
+            <path d="M13 31C10 31 7 34 7 40V48C7 52 10 55 16 55H44C50 55 53 52 53 48V40C53 34 50 31 47 31H13Z" fill="#FFB6C1" />
+            <circle cx="23" cy="42" r="2.5" fill="#D4AF37" opacity="0.7" />
+            <circle cx="37" cy="42" r="2.5" fill="#D4AF37" opacity="0.7" />
+            <circle cx="30" cy="47" r="2" fill="#D4AF37" opacity="0.7" />
+          </svg>
+        </div>
+
+        <!-- Botão do Instagram no rodapé -->
+        <a
+          href="https://www.instagram.com/cakes_da_anamoc?igsh=MWZvY2ExODhxYW5wMQ=="
+          target="_blank"
+          class="inline-flex items-center gap-2 mb-6 p-3 px-6 rounded-xl sans-font"
+          style="background: linear-gradient(135deg, #C48B9F, #D4AF37); color: white; font-size: 18px; font-weight: 600; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.25);"
+        >
+          <svg width="24" height="24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 
+        1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 
+        000-10zm6.5-.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+          </svg>
+          Instagram da Loja
+        </a>
+
+        <p id="footer-text" class="serif-font mb-4" style="color: #C48B9F; font-size: 24px; font-weight: 600;">
+          Será um prazer adoçar seu momento especial!
+        </p>
+
+        <div class="decorative-line mb-4"></div>
+
+        <p class="sans-font" style="color: #8B7B8B; font-size: 16px;">
+          📱 WhatsApp: +55 38 9982-4317
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- LÓGICA DO SITE -->
+  <script>
+    let pedido = {
+      massa: '',
+      recheios: [],
+      tamanho: '',
+      valorBolo: 0,
+      brigadeiros: [],
+      valorBrigadeiros: 0
+    };
+
+    // Seleção de massa
+    document.querySelectorAll('.massa-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.massa-btn').forEach(b => b.classList.remove('selected-card'));
         btn.classList.add('selected-card');
-      }
-      atualizarResumo();
-    });
-  });
-
-  function atualizarResumo() {
-    document.getElementById('resumo-massa').value =
-      pedido.massa || 'Nenhuma massa selecionada';
-
-    document.getElementById('resumo-recheios').value =
-      pedido.recheios.length ? pedido.recheios.join(' + ') : 'Nenhum recheio selecionado';
-
-    document.getElementById('resumo-tamanho').value =
-      pedido.tamanho || 'Nenhum tamanho selecionado';
-
-    const textoBrig = pedido.brigadeiros.length
-      ? pedido.brigadeiros.map(b => `${b.nome} (R$ ${b.valor})`).join('\n')
-      : 'Nenhum brigadeiro selecionado';
-
-    document.getElementById('resumo-brigadeiros').value = textoBrig;
-
-    pedido.valorBrigadeiros = pedido.brigadeiros.reduce((s, b) => s + b.valor, 0);
-    const total = pedido.valorBolo + pedido.valorBrigadeiros;
-    document.getElementById('valor-total').textContent = `R$ ${total}`;
-  }
-
-  document.getElementById('enviar-whatsapp').addEventListener('click', () => {
-    const nome = document.getElementById('nome').value;
-    const data = document.getElementById('data').value;
-    const observacoes = document.getElementById('observacoes').value;
-
-    if (!nome || !data) {
-      toast('Por favor, preencha seu nome e a data da festa.');
-      return;
-    }
-
-    if (!pedido.massa || pedido.recheios.length === 0 || !pedido.tamanho) {
-      toast('Por favor, selecione massa, recheios e tamanho do bolo.');
-      return;
-    }
-
-    const dataFormatada = new Date(data + 'T00:00:00').toLocaleDateString('pt-BR');
-    const total = pedido.valorBolo + pedido.valorBrigadeiros;
-
-    let msg = `Olá! Quero fazer um pedido.\n\n`;
-    msg += `👤 *Nome:* ${nome}\n`;
-    msg += `📅 *Data da festa:* ${dataFormatada}\n\n`;
-    msg += `🍰 *BOLO*\n`;
-    msg += `• Massa: ${pedido.massa}\n`;
-    msg += `• Recheios: ${pedido.recheios.join(' + ')}\n`;
-    msg += `• Tamanho: ${pedido.tamanho}\n`;
-    msg += `• Valor do bolo: R$ ${pedido.valorBolo}\n\n`;
-
-    if (pedido.brigadeiros.length) {
-      msg += `🍫 *BRIGADEIROS*\n`;
-      pedido.brigadeiros.forEach(b => {
-        msg += `• ${b.nome} - R$ ${b.valor}\n`;
+        pedido.massa = btn.dataset.massa;
+        atualizarResumo();
       });
-      msg += `• Valor dos brigadeiros: R$ ${pedido.valorBrigadeiros}\n\n`;
+    });
+
+    // Seleção de recheios (máximo 2)
+    document.querySelectorAll('.recheio-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const recheio = btn.dataset.recheio;
+        const index = pedido.recheios.indexOf(recheio);
+
+        if (index > -1) {
+          pedido.recheios.splice(index, 1);
+          btn.classList.remove('selected-card');
+        } else {
+          if (pedido.recheios.length < 2) {
+            pedido.recheios.push(recheio);
+            btn.classList.add('selected-card');
+          } else {
+            const message = document.createElement('div');
+            message.textContent = 'Você já selecionou 2 recheios. Remova um para adicionar outro.';
+            message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #C48B9F; color: white; padding: 15px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Inter, sans-serif;';
+            document.body.appendChild(message);
+            setTimeout(() => message.remove(), 3000);
+          }
+        }
+        atualizarResumo();
+      });
+    });
+
+    // Seleção de tamanho
+    document.querySelectorAll('.tamanho-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tamanho-btn').forEach(b => b.classList.remove('selected-card'));
+        btn.classList.add('selected-card');
+        pedido.tamanho = btn.dataset.tamanho;
+        pedido.valorBolo = parseInt(btn.dataset.valor);
+        atualizarResumo();
+      });
+    });
+
+    // Seleção de brigadeiros (múltiplos)
+    document.querySelectorAll('.brigadeiro-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const brigadeiro = btn.dataset.brigadeiro;
+        const valor = parseInt(btn.dataset.valor);
+        const index = pedido.brigadeiros.findIndex(b => b.nome === brigadeiro);
+
+        if (index > -1) {
+          pedido.brigadeiros.splice(index, 1);
+          btn.classList.remove('selected-card');
+        } else {
+          pedido.brigadeiros.push({ nome: brigadeiro, valor: valor });
+          btn.classList.add('selected-card');
+        }
+        atualizarResumo();
+      });
+    });
+
+    function atualizarResumo() {
+      document.getElementById('resumo-massa').value = pedido.massa || 'Nenhuma massa selecionada';
+      document.getElementById('resumo-recheios').value = pedido.recheios.length > 0 ? pedido.recheios.join(' + ') : 'Nenhum recheio selecionado';
+      document.getElementById('resumo-tamanho').value = pedido.tamanho || 'Nenhum tamanho selecionado';
+
+      const brigadeirosList = pedido.brigadeiros.length > 0
+        ? pedido.brigadeiros.map(b => `${b.nome} (R$ ${b.valor})`).join('\\n')
+        : 'Nenhum brigadeiro selecionado';
+      document.getElementById('resumo-brigadeiros').value = brigadeirosList;
+
+      pedido.valorBrigadeiros = pedido.brigadeiros.reduce((sum, b) => sum + b.valor, 0);
+      const valorTotal = pedido.valorBolo + pedido.valorBrigadeiros;
+      document.getElementById('valor-total').textContent = `R$ ${valorTotal}`;
     }
 
-    msg += `💰 *VALOR TOTAL: R$ ${total}*\n\n`;
+    document.getElementById('enviar-whatsapp').addEventListener('click', () => {
+      const nome = document.getElementById('nome').value;
+      const data = document.getElementById('data').value;
+      const observacoes = document.getElementById('observacoes').value;
 
-    if (observacoes) msg += `📝 *Observações:* ${observacoes}`;
+      if (!nome || !data) {
+        const message = document.createElement('div');
+        message.textContent = 'Por favor, preencha seu nome e a data da festa.';
+        message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #C48B9F; color: white; padding: 15px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Inter, sans-serif;';
+        document.body.appendChild(message);
+        setTimeout(() => message.remove(), 3000);
+        return;
+      }
 
-    const url = `https://wa.me/553899824317?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-  });
-</script>
+      if (!pedido.massa || pedido.recheios.length === 0 || !pedido.tamanho) {
+        const message = document.createElement('div');
+        message.textContent = 'Por favor, selecione massa, recheios e tamanho do bolo.';
+        message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #C48B9F; color: white; padding: 15px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Inter, sans-serif;';
+        document.body.appendChild(message);
+        setTimeout(() => message.remove(), 3000);
+        return;
+      }
 
+      const dataFormatada = new Date(data + 'T00:00:00').toLocaleDateString('pt-BR');
+      const valorTotal = pedido.valorBolo + pedido.valorBrigadeiros;
+
+      let mensagem = `Olá! Quero fazer um pedido.\\n\\n`;
+      mensagem += `👤 *Nome:* ${nome}\\n`;
+      mensagem += `📅 *Data da festa:* ${dataFormatada}\\n\\n`;
+      mensagem += `🎂 *BOLO*\\n`;
+      mensagem += `• Massa: ${pedido.massa}\\n`;
+      mensagem += `• Recheios: ${pedido.recheios.join(' + ')}\\n`;
+      mensagem += `• Tamanho: ${pedido.tamanho}\\n`;
+      mensagem += `• Valor do bolo: R$ ${pedido.valorBolo}\\n\\n`;
+
+      if (pedido.brigadeiros.length > 0) {
+        mensagem += `🍫 *BRIGADEIROS*\\n`;
+        pedido.brigadeiros.forEach(b => {
+          mensagem += `• ${b.nome} - R$ ${b.valor}\\n`;
+        });
+        mensagem += `• Valor dos brigadeiros: R$ ${pedido.valorBrigadeiros}\\n\\n`;
+      }
+
+      mensagem += `💰 *VALOR TOTAL: R$ ${valorTotal}*\\n\\n`;
+
+      if (observacoes) {
+        mensagem += `📝 *Observações:* ${observacoes}`;
+      }
+
+      const url = `https://wa.me/553899824317?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  </script>
+
+  <!-- Botão flutuante do Instagram -->
+  <a
+    href="https://www.instagram.com/cakes_da_anamoc?igsh=MWZvY2ExODhxYW5wMQ=="
+    class="instagram-float"
+    target="_blank"
+    aria-label="Instagram Cakes da Anamoc"
+  >
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+  </a>
 </body>
 </html>

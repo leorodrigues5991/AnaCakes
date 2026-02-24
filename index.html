@@ -8,7 +8,6 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fontes mais legíveis: Poppins (títulos) e Inter (textos) -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -19,50 +18,24 @@
       background: linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 50%, #FFF5F7 100%);
     }
 
-    .serif-font {
-      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    .sans-font {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
+    .serif-font { font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .sans-font { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes shimmer {
-      0% {
-        background-position: -1000px 0;
-      }
-      100% {
-        background-position: 1000px 0;
-      }
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
     }
-
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
 
-    .fade-in-up {
-      animation: fadeInUp 0.6s ease-out forwards;
-    }
-
-    .float-animation {
-      animation: float 3s ease-in-out infinite;
-    }
+    .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .float-animation { animation: float 3s ease-in-out infinite; }
 
     .card-hover {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -71,7 +44,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .card-hover::before {
       content: '';
       position: absolute;
@@ -82,19 +54,12 @@
       background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
       transition: left 0.5s;
     }
-
-    .card-hover:hover::before {
-      left: 100%;
-    }
-
+    .card-hover:hover::before { left: 100%; }
     .card-hover:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 20px 50px rgba(212, 175, 55, 0.35);
     }
-
-    .card-hover:active {
-      transform: translateY(-4px) scale(1.01);
-    }
+    .card-hover:active { transform: translateY(-4px) scale(1.01); }
 
     .selected-card {
       border: 3px solid #D4AF37 !important;
@@ -102,7 +67,6 @@
       background: linear-gradient(135deg, #FFFBF0, #FFF9E6) !important;
       transform: translateY(-5px) !important;
     }
-
     .selected-card::after {
       content: '✓';
       position: absolute;
@@ -119,10 +83,7 @@
       font-weight: bold;
       font-size: 16px;
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    }
-
-    .gold-gradient {
-      background: linear-gradient(135deg, #D4AF37, #F4E4C1, #D4AF37);
+      pointer-events: none;
     }
 
     .decorative-line {
@@ -133,7 +94,6 @@
       border-radius: 2px;
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
     }
-
     .price-badge {
       background: linear-gradient(135deg, #D4AF37, #F4E4C1, #D4AF37);
       background-size: 200% 200%;
@@ -144,12 +104,10 @@
       border: 2px solid #FFF5F7;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     input:hover, textarea:hover {
       border-color: rgba(212, 175, 55, 0.3);
       box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
     }
-
     input:focus, textarea:focus {
       outline: none;
       border-color: #D4AF37;
@@ -157,11 +115,7 @@
       transform: translateY(-2px);
     }
 
-    @view-transition {
-      navigation: auto;
-    }
-
-    /* Ícone flutuante do Instagram (inferior direito, responsivo) */
+    /* Ícone flutuante do Instagram */
     .instagram-float {
       position: fixed;
       bottom: 25px;
@@ -173,51 +127,31 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
       transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
-
-    .instagram-float:hover {
-      transform: scale(1.12);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-    }
-
-    .instagram-float img {
-      width: 32px;
-      height: 32px;
-    }
-
+    .instagram-float:hover { transform: scale(1.12); box-shadow: 0 15px 35px rgba(0,0,0,0.35); }
+    .instagram-float img { width: 32px; height: 32px; }
     @media (max-width: 480px) {
-      .instagram-float {
-        bottom: 18px;
-        right: 18px;
-        padding: 12px;
-      }
-
-      .instagram-float img {
-        width: 26px;
-        height: 26px;
-      }
+      .instagram-float { bottom: 18px; right: 18px; padding: 12px; }
+      .instagram-float img { width: 26px; height: 26px; }
     }
   </style>
 </head>
+
 <body>
   <div class="w-full min-h-full">
+
     <!-- Hero Section -->
     <section class="w-full py-16 px-6" style="background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F7 100%);">
       <div class="max-w-5xl mx-auto text-center fade-in-up">
         <div class="mb-8 float-animation">
           <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto" style="filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 0.4));">
-            <!-- Forminha do brigadeiro -->
             <ellipse cx="60" cy="95" rx="35" ry="8" fill="#8B7B8B" opacity="0.3" />
             <path d="M35 90 L30 95 L35 100 L60 105 L85 100 L90 95 L85 90 Z" fill="#D4AF37" opacity="0.4" />
-            <!-- Base do brigadeiro -->
             <ellipse cx="60" cy="85" rx="32" ry="10" fill="#8B4513" />
             <ellipse cx="60" cy="85" rx="32" ry="8" fill="#6B3410" />
-            <!-- Corpo principal do brigadeiro -->
             <circle cx="60" cy="60" r="35" fill="#8B4513" />
             <circle cx="60" cy="60" r="35" fill="url(#brigadeiro-gradient)" />
-            <!-- Brilho no brigadeiro -->
             <ellipse cx="50" cy="45" rx="12" ry="8" fill="#FFFFFF" opacity="0.25" />
             <ellipse cx="48" cy="43" rx="6" ry="4" fill="#FFFFFF" opacity="0.4" />
-            <!-- Granulado de chocolate -->
             <circle cx="45" cy="50" r="2.5" fill="#4A2511" opacity="0.8" />
             <circle cx="52" cy="48" r="2" fill="#4A2511" opacity="0.7" />
             <circle cx="48" cy="55" r="2.5" fill="#4A2511" opacity="0.9" />
@@ -237,12 +171,12 @@
             <circle cx="58" cy="58" r="2" fill="#4A2511" opacity="0.8" />
             <circle cx="62" cy="52" r="2.5" fill="#4A2511" opacity="0.7" />
             <circle cx="65" cy="58" r="2" fill="#4A2511" opacity="0.9" />
-            <!-- Estrelinhas douradas decorativas -->
+
             <path d="M25 30 L27 35 L32 35 L28 38 L30 43 L25 40 L20 43 L22 38 L18 35 L23 35 Z" fill="#D4AF37" opacity="0.6" />
             <path d="M90 25 L92 30 L97 30 L93 33 L95 38 L90 35 L85 38 L87 33 L83 30 L88 30 Z" fill="#D4AF37" opacity="0.7" />
             <path d="M95 65 L96 68 L99 68 L97 70 L98 73 L95 71 L92 73 L93 70 L91 68 L94 68 Z" fill="#F4E4C1" opacity="0.8" />
             <path d="M20 70 L21 73 L24 73 L22 75 L23 78 L20 76 L17 78 L18 75 L16 73 L19 73 Z" fill="#F4E4C1" opacity="0.7" />
-            <!-- Gradiente para dar volume -->
+
             <defs>
               <radialGradient id="brigadeiro-gradient" cx="45%" cy="35%">
                 <stop offset="0%" style="stop-color:#A0522D;stop-opacity:0.4" />
@@ -283,12 +217,16 @@
           <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">Branca ou chocolate? Você decide!</p>
         </div>
         <div class="decorative-line mb-10"></div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          <button class="massa-btn card-hover p-8 rounded-2xl sans-font" data-massa="Branca" style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
+          <button class="massa-btn card-hover p-8 rounded-2xl sans-font" data-massa="Branca"
+            style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
             <div class="text-5xl mb-3" style="pointer-events: none;">🍰</div>
             <span style="pointer-events: none;">Massa Branca</span>
           </button>
-          <button class="massa-btn card-hover p-8 rounded-2xl sans-font" data-massa="Chocolate" style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
+
+          <button class="massa-btn card-hover p-8 rounded-2xl sans-font" data-massa="Chocolate"
+            style="background: #FFFFFF; border: 3px solid #FFF5F7; color: #8B7B8B; font-size: 20px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 25px rgba(196, 139, 159, 0.1);">
             <div class="text-5xl mb-3" style="pointer-events: none;">🍫</div>
             <span style="pointer-events: none;">Massa de Chocolate</span>
           </button>
@@ -308,25 +246,26 @@
           <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">Serão 3 camadas deliciosas, repetindo um dos sabores escolhidos</p>
         </div>
         <div class="decorative-line mb-10"></div>
+
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Baba de Moça" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Baba de Moça</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Beijinho" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Beijinho</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Beijinho c/ Ameixa" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Beijinho c/ Ameixa</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Bicho de Pé" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Bicho de Pé</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro de Ninho" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro de Ninho</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho c/ Abacaxi" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ninho c/ Abacaxi</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho Trufado" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ninho Trufado</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho c/ Oreo" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ninho c/ Oreo</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ovomaltine" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Ovomaltine</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Branco" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro Branco</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Preto" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro Preto</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Meio Amargo" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Brigadeiro Meio Amargo</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Paçoca" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Paçoca</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Doce de Leite c/ Coco" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Doce de Leite c/ Coco</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Doce de Leite" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Doce de Leite</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Mousse de Ninho" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Mousse de Ninho</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="4 Leites" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">4 Leites</button>
-          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Prestígio" style="background: #FFFFFF; border: 2px solid #FFF5F7; color: #8B7B8B; font-size: 15px; font-weight: 500; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">Prestígio</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Baba de Moça" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Baba de Moça</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Beijinho" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Beijinho</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Beijinho c/ Ameixa" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Beijinho c/ Ameixa</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Bicho de Pé" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Bicho de Pé</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro de Ninho" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Brigadeiro de Ninho</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho c/ Abacaxi" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Ninho c/ Abacaxi</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho Trufado" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Ninho Trufado</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ninho c/ Oreo" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Ninho c/ Oreo</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Ovomaltine" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Ovomaltine</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Branco" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Brigadeiro Branco</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Preto" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Brigadeiro Preto</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Brigadeiro Meio Amargo" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Brigadeiro Meio Amargo</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Paçoca" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Paçoca</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Doce de Leite c/ Coco" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Doce de Leite c/ Coco</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Doce de Leite" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Doce de Leite</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Mousse de Ninho" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Mousse de Ninho</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="4 Leites" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">4 Leites</button>
+          <button class="recheio-btn card-hover p-5 rounded-xl sans-font text-center" data-recheio="Prestígio" style="background:#FFFFFF;border:2px solid #FFF5F7;color:#8B7B8B;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.08);">Prestígio</button>
         </div>
       </div>
     </section>
@@ -343,53 +282,54 @@
           <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">De 4 a 75 fatias para sua festa</p>
         </div>
         <div class="decorative-line mb-10"></div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="10cm (4 fatias)" data-valor="60" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">10cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">4 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 60</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="10cm (4 fatias)" data-valor="60" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">10cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">4 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 60</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="13cm (8 a 10 fatias)" data-valor="115" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">13cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">8 a 10 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 115</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="13cm (8 a 10 fatias)" data-valor="115" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">13cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">8 a 10 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 115</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="15cm (10 a 15 fatias)" data-valor="135" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">15cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">10 a 15 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 135</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="15cm (10 a 15 fatias)" data-valor="135" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">15cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">10 a 15 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 135</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="17cm (15 a 20 fatias)" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">17cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">15 a 20 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 160</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="17cm (15 a 20 fatias)" data-valor="160" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">17cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">15 a 20 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 160</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="20cm (25 a 30 fatias)" data-valor="200" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">20cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">25 a 30 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 200</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="20cm (25 a 30 fatias)" data-valor="200" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">20cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">25 a 30 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 200</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="25cm (30 a 40 fatias)" data-valor="270" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">25cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">30 a 40 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 270</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="25cm (30 a 40 fatias)" data-valor="270" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">25cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">30 a 40 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 270</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="30cm (50 a 55 fatias)" data-valor="350" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">30cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">50 a 55 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 350</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="30cm (50 a 55 fatias)" data-valor="350" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">30cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">50 a 55 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 350</p>
           </button>
 
-          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="35cm (60 a 75 fatias)" data-valor="400" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.1);">
-            <p class="sans-font mb-2" style="color: #C48B9F; font-size: 22px; font-weight: 600;">35cm</p>
-            <p class="sans-font mb-3" style="color: #8B7B8B; font-size: 14px;">60 a 75 fatias</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 24px; font-weight: 700;">R$ 400</p>
+          <button class="tamanho-btn card-hover p-6 rounded-xl" data-tamanho="35cm (60 a 75 fatias)" data-valor="400" style="background:#FFFFFF;border:2px solid #FFF5F7;cursor:pointer;box-shadow:0 8px 20px rgba(196,139,159,0.1);">
+            <p class="sans-font mb-2" style="color:#C48B9F;font-size:22px;font-weight:600;">35cm</p>
+            <p class="sans-font mb-3" style="color:#8B7B8B;font-size:14px;">60 a 75 fatias</p>
+            <p class="serif-font" style="color:#D4AF37;font-size:24px;font-weight:700;">R$ 400</p>
           </button>
         </div>
       </div>
@@ -404,85 +344,247 @@
           </div>
           <div class="text-4xl mb-3">🍫</div>
           <h2 class="serif-font mb-2" style="color: #C48B9F; font-size: 38px; font-weight: 600;">Brigadeiros (Opcional)</h2>
-          <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">15 sabores incríveis! Valores individuais - centena</p>
+          <p class="sans-font" style="color: #8B7B8B; font-size: 15px;">Escolha quantas centenas quiser por sabor. Ou faça 1 centena variada.</p>
         </div>
+
         <div class="decorative-line mb-10"></div>
 
+        <!-- Centena variada -->
+        <div class="p-5 rounded-xl mb-6" style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+          <label class="flex items-center gap-3 sans-font" style="color:#8B7B8B;font-weight:700;">
+            <input type="checkbox" id="variada-ativa" style="transform: scale(1.2);">
+            Quero 1 centena variada (sabores misturados)
+          </label>
+
+          <p class="sans-font mt-2" style="color:#8B7B8B;font-size:13px;">
+            Valor da centena variada: será cobrado o <b>maior valor</b> entre os sabores informados (se existir no catálogo).
+            Se não houver correspondência, será considerado o maior valor do catálogo.
+          </p>
+
+          <div class="mt-4">
+            <label class="sans-font block mb-2" style="color:#8B7B8B;font-size:13px;font-weight:700;">
+              Sabores da centena variada (separe por vírgula)
+            </label>
+            <textarea id="variada-sabores" class="w-full p-3 rounded-lg sans-font" rows="2"
+              placeholder="Ex: Beijinho, Brigadeiro Branco, Ninho com Nutella"
+              style="background:#FFF5F7;color:#8B7B8B;"></textarea>
+          </div>
+        </div>
+
+        <!-- Catálogo por sabor (centenas com + / -) -->
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Beijinho" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Beijinho</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Tradicional" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro Tradicional</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
+          <!-- Repita este card para cada sabor -->
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Beijinho" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Beijinho</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Prestígio" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Prestígio</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Tradicional" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Brigadeiro Tradicional</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Branco" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro Branco</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Prestígio" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Prestígio</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro de Ninho" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro de Ninho</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Branco" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Brigadeiro Branco</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Bicho de Pé" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Bicho de Pé</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro de Ninho" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Brigadeiro de Ninho</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Cajuzinho" data-valor="120" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Cajuzinho</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 120</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Bicho de Pé" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Bicho de Pé</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Dois Amores" data-valor="130" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Dois Amores</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 130</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Cajuzinho" data-valor="120"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Cajuzinho</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 120 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Leite Ninho" data-valor="130" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Leite Ninho</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 130</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Dois Amores" data-valor="130"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Dois Amores</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 130 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro de Churros" data-valor="140" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro de Churros</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 140</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Leite Ninho" data-valor="130"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Leite Ninho</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 130 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Ninho com Nutella" data-valor="140" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Ninho com Nutella</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 140</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro de Churros" data-valor="140"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Brigadeiro de Churros</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 140 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Olho de Sogra" data-valor="150" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Olho de Sogra</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 150</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Ninho com Nutella" data-valor="140"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Ninho com Nutella</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 140 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Ferrero" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro Ferrero</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 160</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Olho de Sogra" data-valor="150"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Olho de Sogra</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 150 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Ninho com Uva Verde" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Ninho com Uva Verde</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 160</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro Ferrero" data-valor="160"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Brigadeiro Ferrero</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 160 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
 
-          <button class="brigadeiro-btn card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro com Confete" data-valor="160" style="background: #FFFFFF; border: 2px solid #FFF5F7; cursor: pointer; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.08);">
-            <p class="sans-font mb-2" style="color: #8B7B8B; font-size: 15px; font-weight: 500;">Brigadeiro com Confete</p>
-            <p class="serif-font" style="color: #D4AF37; font-size: 18px; font-weight: 600;">R$ 160</p>
-          </button>
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Ninho com Uva Verde" data-valor="160"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Ninho com Uva Verde</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 160 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
+
+          <div class="brigadeiro-card card-hover p-5 rounded-xl" data-brigadeiro="Brigadeiro com Confete" data-valor="160"
+               style="background:#FFFFFF;border:2px solid #FFF5F7;box-shadow:0 8px 20px rgba(196,139,159,0.08);">
+            <p class="sans-font mb-1" style="color:#8B7B8B;font-size:15px;font-weight:700;">Brigadeiro com Confete</p>
+            <p class="serif-font mb-3" style="color:#D4AF37;font-size:16px;font-weight:800;">R$ 160 / centena</p>
+            <div class="flex items-center justify-between gap-3">
+              <button type="button" class="qtd-minus px-4 py-2 rounded-lg sans-font" style="background:#FFF5F7;color:#8B7B8B;font-weight:800;">−</button>
+              <div class="text-center">
+                <div class="sans-font" style="color:#8B7B8B;font-size:12px;font-weight:700;">Centenas</div>
+                <div class="qtd-value serif-font" style="color:#C48B9F;font-size:24px;font-weight:900;">0</div>
+              </div>
+              <button type="button" class="qtd-plus px-4 py-2 rounded-lg sans-font" style="background:#D4AF37;color:white;font-weight:900;">+</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -496,6 +598,7 @@
         <div class="decorative-line mb-10"></div>
 
         <div class="p-8 rounded-2xl mb-8" style="background: linear-gradient(135deg, #FFF5F7, #FFFFFF); box-shadow: 0 15px 40px rgba(196, 139, 159, 0.15);">
+
           <div class="mb-6">
             <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Seu nome</label>
             <input type="text" id="nome" class="w-full p-3 rounded-lg sans-font" placeholder="Digite seu nome" style="background: #FFFFFF; font-size: 15px; color: #8B7B8B;">
@@ -523,12 +626,14 @@
 
           <div class="mb-6">
             <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Brigadeiros selecionados</label>
-            <textarea id="resumo-brigadeiros" class="w-full p-3 rounded-lg sans-font" rows="3" readonly style="background: #FFF5F7; font-size: 15px; color: #8B7B8B;"></textarea>
+            <textarea id="resumo-brigadeiros" class="w-full p-3 rounded-lg sans-font" rows="4" readonly style="background: #FFF5F7; font-size: 15px; color: #8B7B8B;"></textarea>
           </div>
 
           <div class="mb-6">
             <label class="sans-font block mb-2" style="color: #8B7B8B; font-size: 14px; font-weight: 500;">Observações adicionais</label>
-            <textarea id="observacoes" class="w-full p-3 rounded-lg sans-font" rows="4" placeholder="Ex: tema da festa, cores da decoração, observações especiais..." style="background: #FFFFFF; font-size: 15px; color: #8B7B8B;"></textarea>
+            <textarea id="observacoes" class="w-full p-3 rounded-lg sans-font" rows="4"
+              placeholder="Ex: tema da festa, cores da decoração, observações especiais..."
+              style="background: #FFFFFF; font-size: 15px; color: #8B7B8B;"></textarea>
           </div>
 
           <div class="p-8 rounded-2xl mb-6 price-badge" style="position: relative; overflow: hidden; box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); border: 2px solid rgba(255, 255, 255, 0.3);">
@@ -570,7 +675,6 @@
           </svg>
         </div>
 
-        <!-- Botão do Instagram no rodapé -->
         <a
           href="https://www.instagram.com/cakes_da_anamoc?igsh=MWZvY2ExODhxYW5wMQ=="
           target="_blank"
@@ -578,14 +682,12 @@
           style="background: linear-gradient(135deg, #C48B9F, #D4AF37); color: white; font-size: 18px; font-weight: 600; box-shadow: 0 8px 20px rgba(196, 139, 159, 0.25);"
         >
           <svg width="24" height="24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 
-        1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 
-        000-10zm6.5-.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0 2.76-2.24 5-5 5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm6.5-.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
           </svg>
           Instagram da Loja
         </a>
 
-        <p id="footer-text" class="serif-font mb-4" style="color: #C48B9F; font-size: 24px; font-weight: 600;">
+        <p class="serif-font mb-4" style="color: #C48B9F; font-size: 24px; font-weight: 600;">
           Será um prazer adoçar seu momento especial!
         </p>
 
@@ -598,16 +700,130 @@
     </footer>
   </div>
 
+  <!-- Botão flutuante do Instagram -->
+  <a
+    href="https://www.instagram.com/cakes_da_anamoc?igsh=MWZvY2ExODhxYW5wMQ=="
+    class="instagram-float"
+    target="_blank"
+    aria-label="Instagram Cakes da Anamoc"
+  >
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+  </a>
+
   <!-- LÓGICA DO SITE -->
   <script>
+    const WHATSAPP_PHONE = '553899824317';
+
     let pedido = {
       massa: '',
       recheios: [],
       tamanho: '',
       valorBolo: 0,
-      brigadeiros: [],
-      valorBrigadeiros: 0
+
+      // brigadeiros por centena
+      brigadeiros: [], // [{ nome, valorCentena, qtdCentenas }]
+      valorBrigadeiros: 0,
+
+      // centena variada
+      variadaAtiva: false,
+      variadaSabores: ''
     };
+
+    function showToast(text, type = 'error') {
+      const colors = {
+        error: 'background: #C48B9F;',
+        success: 'background: #25D366;',
+        info: 'background: #D4AF37;'
+      };
+      const el = document.createElement('div');
+      el.textContent = text;
+      el.style.cssText = `
+        position: fixed;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        ${colors[type] || colors.error}
+        color: white;
+        padding: 14px 22px;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        z-index: 99999;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        max-width: min(92vw, 520px);
+        text-align: center;
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 2800);
+    }
+
+    function formatBRL(value) {
+      return Number(value || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function formatDatePtBR(yyyy_mm_dd) {
+      const [y, m, d] = (yyyy_mm_dd || '').split('-').map(Number);
+      if (!y || !m || !d) return '';
+      const dt = new Date(Date.UTC(y, m - 1, d));
+      return dt.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+    }
+
+    function cleanText(s) {
+      return (s || '')
+        .replace(/\r/g, '')
+        .replace(/[ \t]+\n/g, '\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+    }
+
+    function buildWhatsAppMessage({ nome, dataFormatada, observacoes, pedido, valorTotal }) {
+      const lines = [];
+
+      lines.push('Olá! Quero fazer um pedido.');
+      lines.push('');
+      lines.push(`👤 *Nome:* ${nome}`);
+      lines.push(`📅 *Data da festa:* ${dataFormatada}`);
+      lines.push('');
+      lines.push('🎂 *BOLO*');
+      lines.push(`• Massa: ${pedido.massa}`);
+      lines.push(`• Recheios: ${pedido.recheios.join(' + ')}`);
+      lines.push(`• Tamanho: ${pedido.tamanho}`);
+      lines.push(`• Valor do bolo: ${formatBRL(pedido.valorBolo)}`);
+      lines.push('');
+
+      if (pedido.brigadeiros.length > 0 || pedido.variadaAtiva) {
+        lines.push('🍫 *BRIGADEIROS*');
+
+        pedido.brigadeiros.forEach(b => {
+          lines.push(`• ${b.qtdCentenas}x centena - ${b.nome} (${formatBRL(b.valorCentena)} cada)`);
+        });
+
+        if (pedido.variadaAtiva) {
+          const sabores = (pedido.variadaSabores || '').trim();
+          lines.push(`• 1x centena variada - Sabores: ${sabores ? sabores : '(não informado)'}`);
+        }
+
+        lines.push(`• Valor dos brigadeiros: ${formatBRL(pedido.valorBrigadeiros)}`);
+        lines.push('');
+      }
+
+      lines.push(`💰 *VALOR TOTAL: ${formatBRL(valorTotal)}*`);
+
+      if (observacoes && observacoes.trim()) {
+        lines.push('');
+        lines.push(`📝 *Observações:* ${observacoes.trim()}`);
+      }
+
+      return cleanText(lines.join('\n'));
+    }
+
+    function openWhatsApp(phone, message) {
+      const encoded = encodeURIComponent(message);
+      const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encoded}`;
+      window.location.href = url; // melhor compatibilidade no Android (sem pop-up)
+    }
 
     // Seleção de massa
     document.querySelectorAll('.massa-btn').forEach(btn => {
@@ -633,11 +849,7 @@
             pedido.recheios.push(recheio);
             btn.classList.add('selected-card');
           } else {
-            const message = document.createElement('div');
-            message.textContent = 'Você já selecionou 2 recheios. Remova um para adicionar outro.';
-            message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #C48B9F; color: white; padding: 15px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Inter, sans-serif;';
-            document.body.appendChild(message);
-            setTimeout(() => message.remove(), 3000);
+            showToast('Você já selecionou 2 recheios. Remova um para adicionar outro.', 'info');
           }
         }
         atualizarResumo();
@@ -650,106 +862,165 @@
         document.querySelectorAll('.tamanho-btn').forEach(b => b.classList.remove('selected-card'));
         btn.classList.add('selected-card');
         pedido.tamanho = btn.dataset.tamanho;
-        pedido.valorBolo = parseInt(btn.dataset.valor);
+        pedido.valorBolo = parseInt(btn.dataset.valor, 10);
         atualizarResumo();
       });
     });
 
-    // Seleção de brigadeiros (múltiplos)
-    document.querySelectorAll('.brigadeiro-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const brigadeiro = btn.dataset.brigadeiro;
-        const valor = parseInt(btn.dataset.valor);
-        const index = pedido.brigadeiros.findIndex(b => b.nome === brigadeiro);
+    // Centena variada
+    const variadaAtivaEl = document.getElementById('variada-ativa');
+    const variadaSaboresEl = document.getElementById('variada-sabores');
 
-        if (index > -1) {
-          pedido.brigadeiros.splice(index, 1);
-          btn.classList.remove('selected-card');
-        } else {
-          pedido.brigadeiros.push({ nome: brigadeiro, valor: valor });
-          btn.classList.add('selected-card');
-        }
+    variadaAtivaEl.addEventListener('change', () => {
+      pedido.variadaAtiva = variadaAtivaEl.checked;
+      atualizarResumo();
+    });
+
+    variadaSaboresEl.addEventListener('input', () => {
+      pedido.variadaSabores = variadaSaboresEl.value;
+      atualizarResumo();
+    });
+
+    // Brigadeiros por centena (catálogo)
+    function upsertBrigadeiro(nome, valorCentena, delta) {
+      const i = pedido.brigadeiros.findIndex(b => b.nome === nome);
+      if (i === -1) {
+        if (delta > 0) pedido.brigadeiros.push({ nome, valorCentena, qtdCentenas: delta });
+      } else {
+        pedido.brigadeiros[i].qtdCentenas = Math.max(0, pedido.brigadeiros[i].qtdCentenas + delta);
+        pedido.brigadeiros[i].valorCentena = valorCentena;
+        if (pedido.brigadeiros[i].qtdCentenas === 0) pedido.brigadeiros.splice(i, 1);
+      }
+    }
+
+    function getQtd(nome) {
+      const item = pedido.brigadeiros.find(b => b.nome === nome);
+      return item ? item.qtdCentenas : 0;
+    }
+
+    document.querySelectorAll('.brigadeiro-card').forEach(card => {
+      const nome = card.dataset.brigadeiro;
+      const valorCentena = parseInt(card.dataset.valor, 10);
+
+      const minus = card.querySelector('.qtd-minus');
+      const plus = card.querySelector('.qtd-plus');
+      const valueEl = card.querySelector('.qtd-value');
+
+      function render() {
+        const qtd = getQtd(nome);
+        valueEl.textContent = qtd;
+        if (qtd > 0) card.classList.add('selected-card');
+        else card.classList.remove('selected-card');
+      }
+
+      minus.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        upsertBrigadeiro(nome, valorCentena, -1);
+        render();
         atualizarResumo();
       });
+
+      plus.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        upsertBrigadeiro(nome, valorCentena, +1);
+        render();
+        atualizarResumo();
+      });
+
+      render();
     });
+
+    function calcularValorVariada() {
+      if (!pedido.variadaAtiva) return 0;
+
+      const catalogo = Array.from(document.querySelectorAll('.brigadeiro-card'))
+        .map(c => ({ nome: c.dataset.brigadeiro, valor: parseInt(c.dataset.valor, 10) }));
+
+      const sabores = (pedido.variadaSabores || '').trim();
+      const saboresArr = sabores
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean);
+
+      const valoresEncontrados = saboresArr
+        .map(s => {
+          const item = catalogo.find(c => c.nome.toLowerCase() === s.toLowerCase());
+          return item ? item.valor : null;
+        })
+        .filter(v => v !== null);
+
+      if (valoresEncontrados.length > 0) return Math.max(...valoresEncontrados);
+      if (catalogo.length > 0) return Math.max(...catalogo.map(c => c.valor));
+      return 0;
+    }
 
     function atualizarResumo() {
       document.getElementById('resumo-massa').value = pedido.massa || 'Nenhuma massa selecionada';
       document.getElementById('resumo-recheios').value = pedido.recheios.length > 0 ? pedido.recheios.join(' + ') : 'Nenhum recheio selecionado';
       document.getElementById('resumo-tamanho').value = pedido.tamanho || 'Nenhum tamanho selecionado';
 
-      const brigadeirosList = pedido.brigadeiros.length > 0
-        ? pedido.brigadeiros.map(b => `${b.nome} (R$ ${b.valor})`).join('\\n')
+      const brigadeirosTexto = pedido.brigadeiros.length > 0
+        ? pedido.brigadeiros
+            .map(b => `${b.qtdCentenas}x centena • ${b.nome} (${formatBRL(b.valorCentena)} cada)`)
+            .join('\n')
         : 'Nenhum brigadeiro selecionado';
-      document.getElementById('resumo-brigadeiros').value = brigadeirosList;
 
-      pedido.valorBrigadeiros = pedido.brigadeiros.reduce((sum, b) => sum + b.valor, 0);
+      let variadaResumo = '';
+      const valorVariada = calcularValorVariada();
+
+      if (pedido.variadaAtiva) {
+        const sabores = (pedido.variadaSabores || '').trim();
+        variadaResumo = `\n\n🎁 1x centena variada: ${sabores ? sabores : '(sabores não informados)'}\nValor variada: ${formatBRL(valorVariada)}`;
+      }
+
+      document.getElementById('resumo-brigadeiros').value = brigadeirosTexto + variadaResumo;
+
+      const valorCentenas = pedido.brigadeiros.reduce((sum, b) => sum + (b.valorCentena * b.qtdCentenas), 0);
+      pedido.valorBrigadeiros = valorCentenas + valorVariada;
+
       const valorTotal = pedido.valorBolo + pedido.valorBrigadeiros;
       document.getElementById('valor-total').textContent = `R$ ${valorTotal}`;
     }
 
     document.getElementById('enviar-whatsapp').addEventListener('click', () => {
-      const nome = document.getElementById('nome').value;
+      const nome = document.getElementById('nome').value.trim();
       const data = document.getElementById('data').value;
       const observacoes = document.getElementById('observacoes').value;
 
       if (!nome || !data) {
-        const message = document.createElement('div');
-        message.textContent = 'Por favor, preencha seu nome e a data da festa.';
-        message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #C48B9F; color: white; padding: 15px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Inter, sans-serif;';
-        document.body.appendChild(message);
-        setTimeout(() => message.remove(), 3000);
+        showToast('Por favor, preencha seu nome e a data da festa.');
         return;
       }
 
       if (!pedido.massa || pedido.recheios.length === 0 || !pedido.tamanho) {
-        const message = document.createElement('div');
-        message.textContent = 'Por favor, selecione massa, recheios e tamanho do bolo.';
-        message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #C48B9F; color: white; padding: 15px 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Inter, sans-serif;';
-        document.body.appendChild(message);
-        setTimeout(() => message.remove(), 3000);
+        showToast('Por favor, selecione massa, recheios e tamanho do bolo.');
         return;
       }
 
-      const dataFormatada = new Date(data + 'T00:00:00').toLocaleDateString('pt-BR');
+      const dataFormatada = formatDatePtBR(data);
+      if (!dataFormatada) {
+        showToast('Data inválida. Tente novamente.');
+        return;
+      }
+
       const valorTotal = pedido.valorBolo + pedido.valorBrigadeiros;
 
-      let mensagem = `Olá! Quero fazer um pedido.\\n\\n`;
-      mensagem += `👤 *Nome:* ${nome}\\n`;
-      mensagem += `📅 *Data da festa:* ${dataFormatada}\\n\\n`;
-      mensagem += `🎂 *BOLO*\\n`;
-      mensagem += `• Massa: ${pedido.massa}\\n`;
-      mensagem += `• Recheios: ${pedido.recheios.join(' + ')}\\n`;
-      mensagem += `• Tamanho: ${pedido.tamanho}\\n`;
-      mensagem += `• Valor do bolo: R$ ${pedido.valorBolo}\\n\\n`;
+      const mensagem = buildWhatsAppMessage({
+        nome,
+        dataFormatada,
+        observacoes,
+        pedido,
+        valorTotal
+      });
 
-      if (pedido.brigadeiros.length > 0) {
-        mensagem += `🍫 *BRIGADEIROS*\\n`;
-        pedido.brigadeiros.forEach(b => {
-          mensagem += `• ${b.nome} - R$ ${b.valor}\\n`;
-        });
-        mensagem += `• Valor dos brigadeiros: R$ ${pedido.valorBrigadeiros}\\n\\n`;
-      }
-
-      mensagem += `💰 *VALOR TOTAL: R$ ${valorTotal}*\\n\\n`;
-
-      if (observacoes) {
-        mensagem += `📝 *Observações:* ${observacoes}`;
-      }
-
-      const url = `https://wa.me/553899824317?text=${encodeURIComponent(mensagem)}`;
-      window.open(url, '_blank', 'noopener,noreferrer');
+      showToast('Abrindo WhatsApp…', 'info');
+      openWhatsApp(WHATSAPP_PHONE, mensagem);
     });
-  </script>
 
-  <!-- Botão flutuante do Instagram -->
-  <a
-    href="https://www.instagram.com/cakes_da_anamoc?igsh=MWZvY2ExODhxYW5wMQ=="
-    class="instagram-float"
-    target="_blank"
-    aria-label="Instagram Cakes da Anamoc"
-  >
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-  </a>
+    // inicia o resumo
+    atualizarResumo();
+  </script>
 </body>
 </html>
